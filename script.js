@@ -14,9 +14,7 @@ function arrangeWords(){
 
     document.getElementById("beforeArrange").innerHTML = words.join(", ");
 
-    const arrangedWords = words.sort((a, b) => 
-    a.toLowerCase().localeCompare(b.toLowerCase())
-    );
+    const arrangedWords = words.sort((a, b) => a.localeCompare(b, "my"));
 
     for (let i = 0; i < arrangedWords.length; i++) {
         const newElement = document.createElement("li");
