@@ -5,14 +5,14 @@ function arrangeWords(){
 
     const word = document.getElementById("wordsInput").value.trim();
     if (word === "") {
-        alert("Please enter some words.");
+        alert("စာလုံးများထည့်ပါ။");
         return;
     } else {
         words.push(word);
         document.getElementById("wordsInput").value = "";
     }
 
-    document.getElementById("beforeArrange").innerHTML = words.join(", ");
+    document.getElementById("beforeArrange").innerHTML = words.join("၊ ");
 
     const arrangedWords = words.sort((a, b) => a.localeCompare(b, "my"));
 
