@@ -1,39 +1,27 @@
-const words = [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>မြန်မာစာ စီစဉ်ရန်</title>
+</head>
+<body>
+    <div id="container">
+        <h1>မြန်မာအက္ခရာ စီစဉ်ရန်</h1>
+        <div id="display">
+            <div id="btn">
+                <input type="text" id="wordsInput" autocomplete="on">
+                <input type="button" onclick="arrangeWords()" value="ထည့်ပါ">
+            </div>
 
-function arrangeWords(){
-    document.getElementById("afterArrange").innerHTML = " ";
+            <h3>စီစဉ်ရန်</h3>
+            <div id="beforeArrange"></div>
 
-    const word = document.getElementById("wordsInput").value.trim();
-
-    if (word === "") {
-        alert("ထည့်ရန် တစ်ခုခုရေးပါ။");
-        return;
-    } else {
-        words.push(word);
-        document.getElementById("wordsInput").value = "";
-    }
-
-    document.getElementById("beforeArrange").innerHTML = words.join("၊ ");
-
-    const arrangedWords = [...words].sort((a, b) => a.localeCompare(b, 'my'));
-
-    for (let i = 0; i < arrangedWords.length; i++) {
-        const newElement = document.createElement("li");
-        newElement.className = "wordsList";
-        newElement.setAttribute("data-word", arrangedWords[i]);
-        newElement.textContent = arrangedWords[i];
-        document.getElementById("afterArrange").appendChild(newElement);
-    }
-}
-
-const wordsList = document.getElementById("afterArrange");
-
-wordsList.addEventListener("click", function(e) {
-    e.target.remove();
-    const wordToRemove = e.target.getAttribute("data-word");
-    const index = words.indexOf(wordToRemove);
-    if (index > -1) {
-        words.splice(index, 1);
-    }
-    document.getElementById("beforeArrange").innerHTML = words.join("၊ ");
-});
+            <h3>စီစဉ်ပြီး <span>(ဖျက်လိုသည်ကိုနှိပ်၍ဖျက်နိုင်သည်။)</span></h3>
+            <ul id="afterArrange"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
